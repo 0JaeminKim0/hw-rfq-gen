@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 기반 기자재 발주 Workflow PoC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-gray-900 text-white font-sans">
+    <!-- Toast Container -->
+    <div id="toast-container" class="fixed top-4 right-4 z-50 space-y-2"></div>
+
+    <!-- Main Container -->
+    <div class="min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="bg-gray-800 border-b border-gray-700 px-6 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-robot text-blue-400 text-2xl"></i>
+                    <span class="text-xl font-bold">AI 기반 기자재 발주 Workflow PoC</span>
+                </div>
+                <!-- API Mode Toggle -->
+                <div class="flex items-center gap-2 ml-4">
+                    <span class="text-xs text-gray-500">API:</span>
+                    <button id="btn-api-mode" class="text-xs px-2 py-1 rounded bg-gray-700 hover:bg-gray-600 transition" onclick="toggleApiMode()">
+                        <span id="api-mode-label">Mock</span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <span id="current-step-label" class="text-gray-400 text-sm">대기 중</span>
+                <div class="flex items-center gap-2">
+                    <button id="btn-prev" class="control-btn bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-lg transition" disabled>
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button id="btn-play" class="control-btn bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg transition flex items-center gap-2">
+                        <i class="fas fa-play"></i>
+                        <span>시나리오 재생</span>
+                    </button>
+                    <button id="btn-pause" class="control-btn bg-yellow-600 hover:bg-yellow-500 px-3 py-2 rounded-lg transition hidden">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                    <button id="btn-next" class="control-btn bg-gray-700 hover:bg-gray-600 px-3 py-2 rounded-lg transition" disabled>
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col overflow-hidden">
+            <!-- Workflow Overview Panel -->
+            <section id="workflow-panel" class="bg-gray-850 border-b border-gray-700 p-4 relative" style="height: 320px;">
+                <div class="absolute top-2 left-4 text-xs text-gray-500">기자재 발주 Workflow (To-be 안 예시)</div>
+                <div id="workflow-container" class="h-full overflow-x-auto">
+                    <!-- SVG Workflow will be injected here -->
+                </div>
+            </section>
+
+            <!-- Step Detail Panel -->
+            <section id="detail-panel" class="flex-1 bg-gray-900 p-4 overflow-hidden">
+                <!-- Welcome Screen -->
+                <div id="welcome-screen" class="h-full flex flex-col items-center justify-center text-center">
+                    <i class="fas fa-play-circle text-6xl text-blue-500 mb-4 animate-pulse"></i>
+                    <h2 class="text-2xl font-bold mb-2">AI 기반 기자재 발주 Workflow 데모</h2>
+                    <p class="text-gray-400 mb-6">상단의 "시나리오 재생" 버튼을 클릭하거나<br>워크플로우에서 Agent Zone을 직접 선택하세요</p>
+                    <div class="flex gap-4">
+                        <div class="bg-gray-800 rounded-lg p-4 text-center">
+                            <div class="w-4 h-4 bg-orange-500 rounded mx-auto mb-2"></div>
+                            <span class="text-sm text-gray-400">Agent Zone</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-4 text-center">
+                            <div class="w-4 h-4 bg-blue-500 rounded mx-auto mb-2"></div>
+                            <span class="text-sm text-gray-400">일반 프로세스</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Zone 1: RFQ 자동 준비 -->
+                <div id="zone1-panel" class="h-full hidden">
+                    <!-- Zone 1 content will be loaded dynamically -->
+                </div>
+
+                <!-- Agent Zone 2: 견적 접수·검토 -->
+                <div id="zone2-panel" class="h-full hidden">
+                    <!-- Zone 2 content will be loaded dynamically -->
+                </div>
+
+                <!-- Agent Zone 3: 계약/PO 자동 생성 -->
+                <div id="zone3-panel" class="h-full hidden">
+                    <!-- Zone 3 content will be loaded dynamically -->
+                </div>
+
+                <!-- Summary Screen -->
+                <div id="summary-screen" class="h-full hidden">
+                    <!-- Summary content will be loaded dynamically -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Progress Bar -->
+        <footer class="bg-gray-800 border-t border-gray-700 px-6 py-2">
+            <div class="flex items-center justify-between mb-1">
+                <span class="text-xs text-gray-400">시나리오 진행률</span>
+                <span id="progress-text" class="text-xs text-gray-400">0%</span>
+            </div>
+            <div class="w-full bg-gray-700 rounded-full h-2">
+                <div id="progress-bar" class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/mockData.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/workflow.js"></script>
+    <script src="js/zones.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
