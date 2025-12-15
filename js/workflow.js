@@ -45,7 +45,7 @@ const WorkflowDiagram = {
         { id: 'contract_review', label: '계약 검토', x: 1050, y: 170, width: 80, height: 40, type: 'agent', zone: 3 },
         { id: 'po_approval', label: 'PO 생성 품의', x: 1150, y: 60, width: 80, height: 40, type: 'agent', zone: 3 },
         { id: 'po_create', label: 'PO 생성\n및 발송', x: 1150, y: 115, width: 80, height: 40, type: 'agent', zone: 3 },
-        { id: 'po_receive', label: 'PO 접수 및\n공급사 서명', x: 1150, y: 170, width: 80, height: 40, type: 'agent', zone: 3 },
+        { id: 'po_receive', label: '계약서 서명 요청\n메일 발송', x: 1150, y: 170, width: 80, height: 40, type: 'agent', zone: 3 },
         { id: 'contract_auto', label: '서명된 계약서\n자동 생성', x: 1150, y: 225, width: 80, height: 40, type: 'agent', zone: 3 },
         
         // 종료
