@@ -892,13 +892,6 @@ const ZonePanels = {
             <div class="grid grid-cols-2 gap-4 h-full">
                 <!-- Left: Chart and Table -->
                 <div class="space-y-4">
-                    <div class="chart-container">
-                        <h4 class="font-semibold text-sm mb-3 text-gray-400">
-                            <i class="fas fa-chart-line mr-1"></i>과거 단가 vs 이번 견적 비교
-                        </h4>
-                        <canvas id="price-chart" height="180"></canvas>
-                    </div>
-                    
                     <div>
                         <h4 class="font-semibold text-sm mb-3 text-gray-400">
                             <i class="fas fa-star mr-1"></i>가격 적정성 평가
@@ -967,7 +960,7 @@ const ZonePanels = {
         `;
         
         // Render chart
-        this.renderPriceChart(fairness);
+        // this.renderPriceChart(fairness);
     },
 
     renderPriceChart: function(fairness) {
