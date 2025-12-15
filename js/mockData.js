@@ -7,7 +7,7 @@ const MockData = {
     // PR (Purchase Request) 정보
     prInfo: {
         prNumber: "PR-2024-001234",
-        itemName: "고압 밸브 (High Pressure Valve)",
+        itemName: "항법 통신 장비 (Radio Navigation System)",
         itemCode: "HPV-316SS-4IN",
         quantity: 50,
         unit: "EA",
@@ -31,11 +31,11 @@ const MockData = {
     supplierPool: [
         {
             id: "SUP001",
-            name: "(주)한국밸브산업",
+            name: "(주)한국통신산업",
             country: "대한민국",
             orderCount: 127,
             score: 95,
-            rationale: "최근 3년간 동일 사양 밸브 127건 납품, 품질 등급 A+, 평균 납기 준수율 98.5%",
+            rationale: "최근 3년간 동일 사양 통신 장비 127건 납품, 품질 등급 A+, 평균 납기 준수율 98.5%",
             qualityGrade: "A+",
             deliveryRate: 98.5,
             contact: "sales@korvalve.co.kr"
@@ -46,7 +46,7 @@ const MockData = {
             country: "미국",
             orderCount: 89,
             score: 92,
-            rationale: "글로벌 밸브 제조사, API 600 인증 보유, 대형 프로젝트 경험 다수",
+            rationale: "글로벌 네비게이션 제조사, API 600 인증 보유, 대형 프로젝트 경험 다수",
             qualityGrade: "A",
             deliveryRate: 96.2,
             contact: "asia@flowserve.com"
@@ -57,18 +57,18 @@ const MockData = {
             country: "일본",
             orderCount: 64,
             score: 88,
-            rationale: "고품질 일본 제조사, SUS316 밸브 전문, 기술 지원 우수",
+            rationale: "고품질 일본 제조사, SUS316 통신 전문, 기술 지원 우수",
             qualityGrade: "A",
             deliveryRate: 97.8,
             contact: "export@kitz.co.jp"
         },
         {
             id: "SUP004",
-            name: "(주)동양밸브",
+            name: "(주)동양통신",
             country: "대한민국",
             orderCount: 45,
             score: 82,
-            rationale: "국내 중견 밸브사, 가격 경쟁력 우수, 납기 유연성 확보",
+            rationale: "국내 중견 통신사, 가격 경쟁력 우수, 납기 유연성 확보",
             qualityGrade: "B+",
             deliveryRate: 94.1,
             contact: "inquiry@dongyang-valve.com"
@@ -79,7 +79,7 @@ const MockData = {
             country: "캐나다",
             orderCount: 31,
             score: 78,
-            rationale: "고압 밸브 전문사, API 인증 다수 보유, 신규 거래처 후보",
+            rationale: "항법 통신 기기 전문사, API 인증 다수 보유, 신규 거래처 후보",
             qualityGrade: "A-",
             deliveryRate: 95.3,
             contact: "sales@velan.com"
@@ -96,11 +96,11 @@ const MockData = {
         sections: [
             {
                 title: "1. 개요",
-                content: "당사는 신규 화학 플랜트 구축 프로젝트에 필요한 고압 밸브에 대한 견적을 요청드립니다."
+                content: "당사는 신규 화학 플랜트 구축 프로젝트에 필요한 항법 통신 장비에 대한 견적을 요청드립니다."
             },
             {
                 title: "2. 품목 상세",
-                content: "품목: 고압 밸브 (HPV-316SS-4IN)\n수량: 50 EA\n납기: 2024년 3월 15일"
+                content: "품목: 항법 통신 장비 (HPV-316SS-4IN)\n수량: 50 EA\n납기: 2024년 3월 15일"
             },
             {
                 title: "3. 기술 사양",
@@ -120,12 +120,12 @@ const MockData = {
     // RFQ 이메일 템플릿
     // 향후 수정 필요 영역: POST /api/rfq/generate-email 응답으로 대체
     rfqEmail: {
-        subject: "[RFQ-2024-001234] 고압 밸브 견적 요청의 건",
+        subject: "[RFQ-2024-001234] 항법 통신 장비 견적 요청의 건",
         body: `안녕하십니까,
 
 당사 신규 화학 플랜트 구축 프로젝트와 관련하여, 아래 품목에 대한 견적을 요청드립니다.
 
-■ 품목: 고압 밸브 (High Pressure Valve)
+■ 품목: 항법 통신 장비
 ■ 품번: HPV-316SS-4IN
 ■ 수량: 50 EA
 ■ 희망 납기: 2024년 3월 15일
@@ -154,8 +154,8 @@ Email: procurement@company.com`
     submittedQuotes: [
         {
             id: "Q001",
-            supplier: "(주)한국밸브산업",
-            fileName: "견적서_한국밸브_20240125.pdf",
+            supplier: "(주)한국통신산업",
+            fileName: "견적서_한국통신_20240125.pdf",
             fileType: "pdf",
             submittedDate: "2024-01-25",
             unitPrice: 850000,
@@ -205,9 +205,9 @@ Email: procurement@company.com`
     // 견적 비교 분석 결과
     // 향후 수정 필요 영역: POST /api/quote/parse-and-compare 응답으로 대체
     quoteAnalysis: {
-        summary: "총 3개 협력사 견적 접수 완료. A사(한국밸브)가 가격 및 납기 면에서 가장 우수하며, B사(Flowserve)는 납기가 2주 초과됩니다.",
+        summary: "총 3개 협력사 견적 접수 완료. A사(한국통신)가 가격 및 납기 면에서 가장 우수하며, B사(Flowserve)는 납기가 2주 초과됩니다.",
         recommendations: [
-            { supplier: "한국밸브산업", status: "추천", reason: "최저가, 납기 준수, 국내 A/S 용이" },
+            { supplier: "한국통신산업", status: "추천", reason: "최저가, 납기 준수, 국내 A/S 용이" },
             { supplier: "KITZ Corporation", status: "대안", reason: "품질 우수, 납기 양호, 가격 중간" },
             { supplier: "Flowserve", status: "조건부", reason: "품질 최우수, 단 납기 초과 협의 필요" }
         ]
@@ -217,14 +217,14 @@ Email: procurement@company.com`
     // 향후 수정 필요 영역: POST /api/quote/generate-tech-review-mail 응답으로 대체
     techReviewEmail: {
         to: "engineering@company.com",
-        subject: "[기술검토요청] 고압 밸브 (HPV-316SS-4IN) 견적 검토",
+        subject: "[기술검토요청] 항법 통신 장비 (HPV-316SS-4IN) 견적 검토",
         body: `기술팀 담당자님께,
 
 조달팀에서 아래 품목에 대한 기술 검토를 요청드립니다.
 
-■ 품목: 고압 밸브 (HPV-316SS-4IN)
+■ 품목: 항법 통신 장비 (HPV-316SS-4IN)
 ■ 관련 RFQ: RFQ-2024-001234
-■ 접수 견적: 3건 (한국밸브, Flowserve, KITZ)
+■ 접수 견적: 3건 (한국통신, Flowserve, KITZ)
 
 [검토 요청 사항]
 1. 각 협력사 제안 사양의 기술적 적합성
@@ -251,19 +251,19 @@ Email: procurement@company.com`
             { date: "2024-Q1", avgPrice: 850000, minPrice: 820000, maxPrice: 900000 }
         ],
         currentQuotes: [
-            { supplier: "한국밸브", price: 850000, fairnessScore: 95, status: "적정" },
+            { supplier: "한국통신", price: 850000, fairnessScore: 95, status: "적정" },
             { supplier: "KITZ", price: 885000, fairnessScore: 88, status: "적정" },
             { supplier: "Flowserve", price: 1196000, fairnessScore: 62, status: "고가" }
         ],
         marketAverage: 860000,
-        recommendation: "한국밸브산업의 견적가가 시장 평균 대비 1.2% 저렴하며, 과거 거래 이력 대비 적정 수준입니다."
+        recommendation: "한국통신산업의 견적가가 시장 평균 대비 1.2% 저렴하며, 과거 거래 이력 대비 적정 수준입니다."
     },
 
     // Supplier Pool 변경 제안
     // 향후 수정 필요 영역: POST /api/supplier/pool-suggestion 응답으로 대체
     poolSuggestions: [
         {
-            supplier: "한국밸브산업",
+            supplier: "한국통신산업",
             currentStatus: "Pool A",
             suggestedStatus: "Pool A (유지)",
             reason: "지속적인 가격 경쟁력 및 품질 유지"
@@ -284,7 +284,7 @@ Email: procurement@company.com`
 
     // 최종 선정 결과
     selectedSupplier: {
-        name: "(주)한국밸브산업",
+        name: "(주)한국통신산업",
         unitPrice: 850000,
         totalPrice: 42500000,
         deliveryDate: "2024-03-10",
@@ -307,7 +307,7 @@ Email: procurement@company.com`
         },
         {
             number: "제2조 (물품 내역)",
-            content: "품명: 고압 밸브 (HPV-316SS-4IN)\n수량: 50 EA\n단가: 850,000원 (부가세 별도)\n총액: 42,500,000원"
+            content: "품명: 항법 통신 장비 (HPV-316SS-4IN)\n수량: 50 EA\n단가: 850,000원 (부가세 별도)\n총액: 42,500,000원"
         },
         {
             number: "제3조 (납품 기한)",
@@ -331,13 +331,13 @@ Email: procurement@company.com`
     poInfo: {
         poNumber: "PO-2024-001234",
         issueDate: "2024-02-01",
-        supplier: "(주)한국밸브산업",
+        supplier: "(주)한국통신산업",
         supplierAddress: "경기도 안산시 단원구 산업로 123",
         items: [
             {
                 lineNo: 1,
                 itemCode: "HPV-316SS-4IN",
-                description: "고압 밸브 (SUS316, Class 600, 4인치)",
+                description: "항법 통신 장비 (SUS316, Class 600, 4인치)",
                 quantity: 50,
                 unit: "EA",
                 unitPrice: 850000,
@@ -357,15 +357,15 @@ Email: procurement@company.com`
     counterSignEmail: {
         to: "sales@korvalve.co.kr",
         subject: "[PO-2024-001234] 발주서 송부 및 카운터사인 요청",
-        body: `(주)한국밸브산업 영업팀 귀하,
+        body: `(주)한국통신산업 영업팀 귀하,
 
 당사의 RFQ-2024-001234 건에 대하여 귀사를 최종 공급업체로 선정하게 되었음을 알려드립니다.
 
 첨부된 발주서(PO-2024-001234)를 검토하시고, 동의하시면 카운터사인하여 회신 부탁드립니다.
 
 [발주 개요]
-- 품목: 고압 밸브 (HPV-316SS-4IN)
-- 수량: 50 EA
+- 품목: 항법 통신 장비 (HPV-316SS-4IN)
+- 수량: 1 EA
 - 총액: 46,750,000원 (VAT 포함)
 - 납기: 2024년 3월 10일
 
