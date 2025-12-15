@@ -349,7 +349,7 @@ Email: procurement@hanwhaocean.com`
         vat: 4250000,
         total: 46750000,
         deliveryDate: "2024-03-10",
-        deliveryAddress: "충남 서산시 대산읍 신규플랜트 현장",
+        deliveryAddress: "경남 거제시 신규 LNG 수주 현장",
         paymentTerms: "선급금 30%, 납품 후 70% (30일)",
         notes: "API 600 인증서 및 MTR(Material Test Report) 납품 시 제출 필수"
     },
