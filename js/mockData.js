@@ -23,7 +23,7 @@ const MockData = {
             "인증: API 600, ASME B16.34"
         ],
         requester: "김철수 (기계설계팀)",
-        project: "신규 화학 플랜트 구축 프로젝트"
+        project: "신규 LNG선 구축 프로젝트"
     },
 
     // Supplier Pool 추천 결과
@@ -96,7 +96,7 @@ const MockData = {
         sections: [
             {
                 title: "1. 개요",
-                content: "당사는 신규 화학 플랜트 구축 프로젝트에 필요한 항법 통신 장비에 대한 견적을 요청드립니다."
+                content: "당사는 신규 LNG선 구축 프로젝트에 필요한 항법 통신 장비에 대한 견적을 요청드립니다."
             },
             {
                 title: "2. 품목 상세",
@@ -123,7 +123,7 @@ const MockData = {
         subject: "[RFQ-2024-001234] 항법 통신 장비 견적 요청의 건",
         body: `안녕하십니까,
 
-당사 신규 화학 플랜트 구축 프로젝트와 관련하여, 아래 품목에 대한 견적을 요청드립니다.
+당사 신규 LNG선 구축 프로젝트와 관련하여, 아래 품목에 대한 견적을 요청드립니다.
 
 ■ 품목: 항법 통신 장비
 ■ 품번: HPV-316SS-4IN
@@ -146,7 +146,7 @@ const MockData = {
 ---
 조달팀 이영희
 Tel: 02-1234-5678
-Email: procurement@company.com`
+Email: procurement@hanwhaocean.com`
     },
 
     // 협력사 제출 견적서 데이터
