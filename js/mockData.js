@@ -14,13 +14,14 @@ const MockData = {
         requestDate: "2024-01-15",
         desiredDeliveryDate: "2024-03-15",
         specifications: [
-            "재질: SUS316 스테인리스 스틸",
-            "압력 등급: Class 600 (PN100)",
-            "크기: 4인치 (DN100)",
-            "연결 방식: 플랜지 타입 (RF)",
-            "작동 방식: 수동 (핸드휠)",
-            "온도 범위: -29°C ~ 425°C",
-            "인증: API 600, ASME B16.34"
+            "장비 유형: 항공용 VHF 통신 장비",
+            "주파수 범위: 118.000 MHz ~ 136.975 MHz",
+            "채널 간격: 8.33 kHz / 25 kHz 듀얼 지원",
+            "송신 출력: 10 W ~ 16 W (조절 가능)",
+            "전원 규격: 28 V DC 항공기 표준 전원",
+            "인터페이스: ARINC 429 / RS-422 지원",
+            "설치 방식: 항공기 랙 마운트 (Standard ATR Tray)",
+            "기능: 6W Audio Output, DSB-AM Modulation, Built-in Self-Test(BIT)"
         ],
         requester: "김철수 (기계설계팀)",
         project: "신규 LNG선 구축 프로젝트"
@@ -57,7 +58,7 @@ const MockData = {
             country: "일본",
             orderCount: 64,
             score: 88,
-            rationale: "고품질 일본 제조사, SUS316 통신 전문, 기술 지원 우수",
+            rationale: "고품질 일본 제조사, VHF 통신 전문, 기술 지원 우수",
             qualityGrade: "A",
             deliveryRate: 97.8,
             contact: "export@kitz.co.jp"
@@ -104,7 +105,7 @@ const MockData = {
             },
             {
                 title: "3. 기술 사양",
-                content: "- 재질: SUS316 스테인리스 스틸\n- 압력 등급: Class 600\n- 크기: 4인치\n- 인증: API 600, ASME B16.34"
+                content: "인터페이스: ARINC 429 / RS-422 지원"
             },
             {
                 title: "4. 견적 조건",
@@ -337,7 +338,7 @@ Email: procurement@hanwhaocean.com`
             {
                 lineNo: 1,
                 itemCode: "HPV-316SS-4IN",
-                description: "항법 통신 장비 (SUS316, Class 600, 4인치)",
+                description: "항법 통신 장비 (VHF, ARINC 429 / RS-422 지원)",
                 quantity: 50,
                 unit: "EA",
                 unitPrice: 850000,
