@@ -12,12 +12,12 @@ const WorkflowDiagram = {
         
         // Agent Zone 1: RFQ 자동 준비
         { id: 'spec_analysis', label: '자재 사양\n분석', x: 280, y: 60, width: 85, height: 40, type: 'agent', zone: 1 },
-        { id: 'supplier_pool', label: 'Supplier Pool\n선정', x: 280, y: 115, width: 85, height: 40, type: 'agent', zone: 1 },
+        { id: 'supplier_pool', label: '후보 공급사\n추천', x: 280, y: 115, width: 85, height: 40, type: 'agent', zone: 1 },
         { id: 'rfq_target', label: 'RFQ 대상\n협력사 선별', x: 280, y: 170, width: 85, height: 40, type: 'agent', zone: 1 },
         { id: 'rfq_check', label: 'RFQ/발송 대상\n적절성 검토', x: 280, y: 225, width: 85, height: 40, type: 'agent', zone: 1 },
-        { id: 'rfq_context', label: 'RFQ 항목 별\nContext 검토', x: 390, y: 60, width: 85, height: 40, type: 'agent', zone: 1 },
-        { id: 'rfq_design', label: 'RFQ 세부내용\n자동 설계', x: 390, y: 115, width: 85, height: 40, type: 'agent', zone: 1 },
-        { id: 'rfq_goal', label: 'RFQ 목표\n셋업', x: 390, y: 170, width: 85, height: 40, type: 'agent', zone: 1 },
+        { id: 'rfq_context', label: 'RFQ 항목 별\n내용 검토', x: 390, y: 60, width: 85, height: 40, type: 'agent', zone: 1 },
+        { id: 'rfq_design', label: 'RFQ 세부내용\n문서 생성', x: 390, y: 115, width: 85, height: 40, type: 'agent', zone: 1 },
+        { id: 'rfq_goal', label: 'Rule 기반\nRFQ 검증', x: 390, y: 170, width: 85, height: 40, type: 'agent', zone: 1 },
         { id: 'rfq_send', label: '대상 협력사\nRFQ 자동 발송', x: 390, y: 225, width: 85, height: 40, type: 'agent', zone: 1 },
         
         // Agent Zone 2: 견적 접수·검토
@@ -30,7 +30,7 @@ const WorkflowDiagram = {
         { id: 'tech_request', label: '기술 검토 의뢰\n메일 발송', x: 630, y: 200, width: 75, height: 40, type: 'agent', zone: 2 },
         { id: 'tech_review', label: '기술 검토', x: 720, y: 115, width: 75, height: 40, type: 'process' },
         { id: 'tech_result', label: '기술 검토\n결과 송부', x: 720, y: 170, width: 75, height: 40, type: 'process' },
-        { id: 'pool_change', label: 'Supplier Pool\n변경', x: 720, y: 225, width: 75, height: 40, type: 'agent', zone: 2 },
+        { id: 'pool_change', label: '대상 공급사\n변경', x: 720, y: 225, width: 75, height: 40, type: 'agent', zone: 2 },
         
         // 의사결정 노드
         { id: 'supplier_count', label: '대상\nSupplier 수', x: 830, y: 90, width: 75, height: 50, type: 'decision' },
@@ -45,7 +45,7 @@ const WorkflowDiagram = {
         { id: 'contract_review', label: '계약 검토', x: 1050, y: 170, width: 80, height: 40, type: 'agent', zone: 3 },
         { id: 'po_approval', label: 'PO 생성 품의', x: 1150, y: 60, width: 80, height: 40, type: 'agent', zone: 3 },
         { id: 'po_create', label: 'PO 생성\n및 발송', x: 1150, y: 115, width: 80, height: 40, type: 'agent', zone: 3 },
-        { id: 'po_receive', label: 'PO 접수 및\nCounter Sign', x: 1150, y: 170, width: 80, height: 40, type: 'agent', zone: 3 },
+        { id: 'po_receive', label: 'PO 접수 및\n공급사 서명', x: 1150, y: 170, width: 80, height: 40, type: 'agent', zone: 3 },
         { id: 'contract_auto', label: '서명된 계약서\n자동 생성', x: 1150, y: 225, width: 80, height: 40, type: 'agent', zone: 3 },
         
         // 종료
